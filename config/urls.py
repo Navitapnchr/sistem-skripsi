@@ -20,9 +20,10 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('skripsi.urls')), # Pastikan ini sesuai strukturmu
+    # Pastikan 'skripsi.urls' di bawah ini tidak menangkap semua path secara paksa
+    path('api/', include('skripsi.urls')), 
     
-    # URL untuk tampilan cantik Swagger
+    # Letakkan docs di sini, dan akseslah dengan /api/docs/
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 ]
