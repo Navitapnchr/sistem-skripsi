@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-()&_rc8u-&1euad0oyd7*%ibn)x4e!_!3hwax*#&62ctg5+%z&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sistem-skripsi-1.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
