@@ -5,6 +5,7 @@ class Skripsi(models.Model):
     nama = models.CharField(max_length=100)
     judul = models.TextField()
     dosen_pembimbing = models.CharField(max_length=100)
+    semester = models.IntegerField(default=1)
     
     def __str__(self):
         return self.judul
