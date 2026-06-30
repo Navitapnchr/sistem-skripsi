@@ -14,16 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+from django.contrib import admin # TAMBAHKAN BARIS INI
+from django.shortcuts import redirect
 from django.urls import path, include
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Pastikan 'skripsi.urls' di bawah ini tidak menangkap semua path secara paksa
-    path('api/', include('skripsi.urls')), 
-    
-    # Letakkan docs di sini, dan akseslah dengan /api/docs/
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/', include('skripsi.urls')),
+    # Tambahkan baris ini untuk mengarahkan root ke /api/
+    path('', lambda request: redirect('api/')), 
 ]
